@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PG USER</string>
+    <string name="login_to_app">Login To App</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="email_address">Email Address</string>
+    <string name="signup">Signup</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="choose_password">Choose Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="signup_declartion">By signing up you accept the Terms of Service and Privacy Policy</string>
+    <string name="already_have_an_account_log_in">Already have an account? Log in</string>
+    <string name="name">Name</string>
+</resources>
