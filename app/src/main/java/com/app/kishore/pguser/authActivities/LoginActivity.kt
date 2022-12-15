@@ -1,5 +1,6 @@
 package com.app.kishore.pguser.authActivities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.Html
@@ -11,6 +12,7 @@ import com.android.volley.NetworkResponse
 import com.android.volley.VolleyError
 import com.app.kishore.pguser.Constants
 import com.app.kishore.pguser.R
+import com.app.kishore.pguser.activities.ForgetPassword
 import com.app.kishore.pguser.activities.HomeActivity
 import com.app.kishore.pguser.helpers.*
 import com.google.android.gms.tasks.OnCompleteListener
@@ -43,8 +45,12 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             }
         })
+        forget.setOnClickListener {
+            startActivity(Intent(this@LoginActivity,ForgetPassword::class.java))
+        }
 
         btnLogin.setOnClickListener(object : View.OnClickListener{
+            @SuppressLint("SuspiciousIndentation")
             override fun onClick(p0: View?) {
              val userEmail = evLoginEmail.text.toString().trim()
              val userPassword = evLoginPassword.text.toString().trim()

@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.NetworkResponse
 import com.android.volley.VolleyError
 import com.app.kishore.pguser.Constants
 import com.app.kishore.pguser.R
@@ -17,6 +18,7 @@ import com.app.kishore.pguser.helpers.LoadingDialog
 import com.app.kishore.pguser.helpers.Utils
 import com.app.kishore.pguser.helpers.VolleyRequest
 import com.app.kishore.pguser.models.Notification
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
 
@@ -48,6 +50,7 @@ class NotificationActivity : AppCompatActivity() {
             }
         })
     }
+
 
     fun fetchNotifications(userToken : String){
         val loadingDialog = LoadingDialog(this)

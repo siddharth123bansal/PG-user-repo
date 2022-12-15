@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.NetworkResponse
 import com.android.volley.VolleyError
 import com.app.kishore.pguser.Constants
 import com.app.kishore.pguser.R
@@ -53,6 +54,7 @@ class HomeActivity : AppCompatActivity() {
         roomMemberRV = findViewById(R.id.roomMemberRecyclerView)
         roomMemberAdapter = RoomMemberAdapter(this,memberList, JSONObject(intent.getStringExtra("USER")))
         roomMemberRV.adapter = roomMemberAdapter
+        isread()
         fetchData()
 
         if(user.has("profileimage"))
@@ -68,6 +70,7 @@ class HomeActivity : AppCompatActivity() {
 
         notificationBtn.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
+                markasread()
                 val i = Intent(this@HomeActivity, NotificationActivity::class.java)
                 i.putExtra("USER",user.toString())
                 startActivity(i)
@@ -135,6 +138,34 @@ class HomeActivity : AppCompatActivity() {
 
 
     }
+    fun isread()
+    {
+        val request = VolleyRequest(this, object :
+            CallBack {
+            override fun responseCallback(response: JSONObject) {
+                //notificationList.clear()
+                val res=JSONObject(response.toString())
+                //Log.d("resads",res.toString())
+                val bellicon=res.getString("read")
+                //Toast.makeText(this@HomeActivity,"response is "+res.toString(),Toast.LENGTH_LONG).show()
+
+                //Toast.makeText(this@HomeActivity," "+bellicon,Toast.LENGTH_LONG).show()
+                if(bellicon.equals("true")) {
+                    //Toast.makeText(this@HomeActivity, "NO Red Dot", Toast.LENGTH_LONG).show()
+                    notificationBtn.setImageResource(R.drawable.bell)
+                }
+                else {
+                    notificationBtn.setImageResource(R.drawable.notification_icon)
+                    //Toast.makeText(this@HomeActivity, "Yes Red Dot", Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun errorCallback(error_message: VolleyError?) {
+
+            }
+        })
+        request.getRequest(Constants.GET_NOTIFICATIONS,user.getString("token"))
+    }
 
 
     fun fetchData(){
@@ -193,6 +224,26 @@ class HomeActivity : AppCompatActivity() {
         request.getRequest(Constants.GET_ROOM_DETAILS,token)
 
     }
+    fun markasread()
+    {
+        val request =VolleyRequest(this,object :CallBack{
+            override fun responseCallback(response: JSONObject?) {
+                val res=JSONObject(response.toString())
+                val msg=res.getString("message")
+                Log.d("asd",msg.toString())
+//                Toast.makeText(this@HomeActivity,"Marked as read",Toast.LENGTH_LONG).show()
+            }
+
+            override fun errorCallback(error_message: VolleyError?) {
+                Log.d("asd","error")
+            }
+        })
+
+
+        val bodyData = JSONObject()
+        request.putWithBody(Constants.markAsRead,bodyData, user.getString("token"))
+    }
+
 
     override fun onBackPressed() {
         finish()

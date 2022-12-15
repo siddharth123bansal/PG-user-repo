@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.app.kishore.pguser">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -20,10 +19,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.EnterOTP"
+            android:exported="false"/>
+        <activity
+            android:name=".activities.ForgetPassword"
+            android:exported="false"/>
+        <activity
             android:name=".activities.PGInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".DNDDialog"
+            android:name=".activities.DNDDialog"
             android:exported="false" />
         <activity
             android:name=".activities.GroupChatActivity"

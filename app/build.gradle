@@ -32,8 +32,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.app.kishore.pguser'
 }
-
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'

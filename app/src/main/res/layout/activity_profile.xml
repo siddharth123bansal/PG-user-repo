@@ -155,10 +155,10 @@
                     android:id="@+id/receiver_profile_image"
                     android:layout_width="132dp"
                     android:layout_height="132dp"
-                    android:src="@drawable/user"
-                    app:civ_border_width="2dp"
                     android:layout_marginTop="16dp"
-                    app:civ_border_color="#FF000000"/>
+                    android:src="@drawable/user"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
 
                 <ImageView
                     android:id="@+id/uploadProfileImage"
@@ -476,6 +476,45 @@
                             android:textColor="@color/black" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="idproof"
+                        android:textColorHint="#808080"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+                        app:boxStrokeColor="#49454F"
+                        android:layout_marginTop="12dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/idproof"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text"
+                            android:textColor="@color/black" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="adhaarcard"
+                        android:textColorHint="#808080"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+                        app:boxStrokeColor="#49454F"
+                        android:layout_marginTop="12dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/adhaarcard"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
                     <TextView
@@ -503,9 +542,4 @@
         </LinearLayout>
 
     </ScrollView>
-
-
-
-
-
 </LinearLayout>

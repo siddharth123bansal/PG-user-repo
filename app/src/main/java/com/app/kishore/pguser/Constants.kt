@@ -13,7 +13,8 @@ class Constants {
         val CHANGE_PROFILE_IMAGE = BASE_URL+"pgowner/changeprofileimage"
         val TOGGLE_DND = BASE_URL + "user/togglednd"
         val CHANGE_PROFILE = BASE_URL + "user/changeprofile"
-
-
+        val markAsRead= BASE_URL+"pgowner/marknotificationread"
+        val reqotp= BASE_URL+"pgowner/requestotp"
+        val changepOTP="https://backend.pgconnect.in/api/pgowner/changepasswordwithotp"
     }
 }
